@@ -1,0 +1,10 @@
+﻿{
+  ""name"": ""hackathonbook"",
+  ""version"": ""0.1.0"",
+  ""description"": ""Hackathon Book project scaffold"",
+  ""scripts"": {
+    ""start"": ""echo 'Open VS Code and use Specify+'"",
+    ""build"": ""echo 'Add build steps here'""
+  },
+  ""license"": ""MIT""
+}
