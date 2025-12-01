@@ -16,7 +16,7 @@ Once you have tested life experiments, it’s time to embed learning into daily 
 
 **Reflection:**  
 Consistency and small wins are more important than perfection. Microprojects make big goals achievable and habits stick over time.
-# Chapter 6 Prompts — Habit Design and Microprojects
+## Chapter 6 Prompts — Habit Design and Microprojects
 
 ## Purpose:
 Design effective habits and microprojects with AI support.

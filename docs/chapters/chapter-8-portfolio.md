@@ -16,7 +16,7 @@ Once you have experimented and developed skills, it’s time to showcase your wo
 
 **Reflection:**  
 Your portfolio is both a reflection of your growth and a tool to unlock opportunities. Small income streams provide feedback and validation for your experiments.
-# Chapter 8 Prompts — Portfolio and Income Streams
+## Chapter 8 Prompts — Portfolio and Income Streams
 
 ## Purpose:
 Use AI to build a portfolio and identify micro-income opportunities.

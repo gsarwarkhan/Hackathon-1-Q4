@@ -16,7 +16,7 @@ Now that you have ideas for life and career experiments, the next step is to tes
 
 **Reflection:**  
 Rapid prototyping helps you avoid overthinking and accelerates learning, allowing you to refine your life design continuously.
-# Chapter 5 Prompts — Rapid Prototyping
+## Chapter 5 Prompts — Rapid Prototyping
 
 ## Purpose:
 Test life experiments quickly and effectively using AI guidance.

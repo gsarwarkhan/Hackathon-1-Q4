@@ -16,7 +16,7 @@ As you design your life with AI, it’s crucial to maintain ethical standards, p
 
 **Reflection:**  
 Ethics, privacy, and guardrails help you grow sustainably while avoiding harm to yourself and others.
-# Chapter 9 Prompts — Ethics and Privacy
+## Chapter 9 Prompts — Ethics and Privacy
 
 ## Purpose:
 Ensure responsible AI use and long-term safety in life experiments.

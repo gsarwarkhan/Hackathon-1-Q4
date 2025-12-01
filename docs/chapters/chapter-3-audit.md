@@ -16,7 +16,7 @@ Before designing experiments for your life, it’s important to understand where
 
 **Reflection:**  
 Understanding your starting point ensures that your life experiments are realistic, achievable, and aligned with your goals.
-# Chapter 3 Prompts — Personal Audit
+## Chapter 3 Prompts — Personal Audit
 
 ## Purpose:
 Evaluate your current skills, resources, and environment using AI.

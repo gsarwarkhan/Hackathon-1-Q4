@@ -16,7 +16,7 @@ Now that you’ve designed, prototyped, and refined experiments, it’s time to 
 
 **Reflection:**  
 Shipping, iterating, and scaling ensures that your learning compounds and your life design evolves continuously.
-# Chapter 10 Prompts — Ship, Iterate, and Scale
+## Chapter 10 Prompts — Ship, Iterate, and Scale
 
 ## Purpose:
 Use AI to optimize and scale life experiments effectively.

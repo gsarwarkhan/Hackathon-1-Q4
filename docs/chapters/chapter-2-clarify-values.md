@@ -15,7 +15,7 @@ In this chapter, you will learn how to identify your personal values, priorities
 
 **Reflection:**  
 Take note of what matters most and what limits your choices. This will guide all your life experiments and decisions in later chapters.
-# Chapter 2 Prompts — Clarify Values
+## Chapter 2 Prompts — Clarify Values
 
 ## Purpose:
 Help you define your personal values and life constraints using AI.

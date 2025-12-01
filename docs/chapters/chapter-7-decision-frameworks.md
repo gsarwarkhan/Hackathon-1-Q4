@@ -16,7 +16,7 @@ As you progress through life experiments, you’ll face multiple options and cho
 
 **Reflection:**  
 Weighted decision-making helps you focus on experiments that maximize learning and progress while respecting your constraints.
-# Chapter 7 Prompts — Decision Frameworks
+## Chapter 7 Prompts — Decision Frameworks
 
 ## Purpose:
 Use AI to evaluate options and prioritize life experiments effectively.

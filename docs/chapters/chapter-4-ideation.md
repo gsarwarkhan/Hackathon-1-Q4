@@ -15,7 +15,7 @@ Once you understand your values and current situation, it’s time to brainstorm
 
 **Reflection:**  
 The goal is not perfection—it's to generate actionable ideas and test them quickly.
-# Chapter 4 Prompts — Ideation
+## Chapter 4 Prompts — Ideation
 
 ## Purpose:
 Use AI to generate life and career experiment ideas.
