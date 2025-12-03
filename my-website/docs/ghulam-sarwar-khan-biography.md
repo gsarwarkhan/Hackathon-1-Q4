@@ -1,3 +1,8 @@
+---
+sidebar_position: 1
+title: Ghulam Sarwar Khan's Biography
+---
+
 Ghulam Sarwar Khan – Career Journey and Professional Story
 
 Ghulam Sarwar Khan's professional journey is a compelling narrative defined by high-level executive administration, international diplomacy, pragmatic entrepreneurship, and a deep commitment to continuous upskilling. This career trajectory uniquely positions him as a "Future-Ready Leader," capable of integrating proven traditional administrative competencies with cutting-edge Artificial Intelligence (AI) and process optimization.
