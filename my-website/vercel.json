@@ -1,1 +1,1 @@
-﻿{"builds":[{"src":"my-website/package.json","use":"@vercel/static-build","config":{"distDir":"my-website/build"}}],"routes":[] }
+﻿{"builds":[{"src":"package.json","use":"@vercel/static-build","config":{"distDir":"build"}}],"routes":[] }
