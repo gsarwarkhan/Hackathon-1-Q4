@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2C3E50; /* Deep Navy */
+  --ifm-color-primary-dark: #253340;
+  --ifm-color-primary-darker: #212D38;
+  --ifm-color-primary-darkest: #1A242F;
+  --ifm-color-primary-light: #3F5267;
+  --ifm-color-primary-lighter: #4A5F76;
+  --ifm-color-primary-lightest: #6C7D8F;
+  --ifm-color-info: #E67E22; /* Burnt Orange for accent */
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: 'Lora', serif;
+  --ifm-font-family-monospace: 'Montserrat', sans-serif;
+  --ifm-h1-font-family: 'Montserrat', sans-serif;
+  --ifm-h2-font-family: 'Montserrat', sans-serif;
+  --ifm-h3-font-family: 'Montserrat', sans-serif;
+  --ifm-h4-font-family: 'Montserrat', sans-serif;
+  --ifm-h5-font-family: 'Montserrat', sans-serif;
+  --ifm-h6-font-family: 'Montserrat', sans-serif;
+  --ifm-line-height-base: 1.6;
+  --ifm-paragraph-margin-bottom: 1.5rem;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #BBCCDD; /* Lighter shade for dark mode primary */
+  --ifm-color-primary-dark: #AABBCB;
+  --ifm-color-primary-darker: #9CAABC;
+  --ifm-color-primary-darkest: #8C99AB;
+  --ifm-color-primary-light: #CCDDEE;
+  --ifm-color-primary-lighter: #DDEEFF;
+  --ifm-color-primary-lightest: #EEF7FF;
+  --ifm-color-info: #FF9933; /* Slightly brighter accent for dark mode */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ifm-color-primary-darkest);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] h1, [data-theme='dark'] h2, [data-theme='dark'] h3, [data-theme='dark'] h4, [data-theme='dark'] h5, [data-theme='dark'] h6 {
+  color: var(--ifm-color-primary-lightest);
+}
+
+.menu__link.menu__link--active {
+  color: var(--ifm-color-info) !important;
+  background-color: transparent !important;
+}
+
+
+
+[data-theme='dark'] .menu__link.menu__link--active {
+  color: var(--ifm-color-info) !important;
+  background-color: transparent !important;
+}
+
+.navbar__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.footer--dark {
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+.button.button--primary {
+  background-color: var(--ifm-color-info);
+  color: white;
+}
+
+
+/* Text Styling for readability (like Facebook/Medium) */
+p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+blockquote {
+  border-left: 4px solid var(--ifm-color-info);
+  color: var(--ifm-font-color-secondary);
+  padding-left: 1.5rem;
+  font-style: italic;
+  margin-left: 0;
+}
+
+
+
+.theme-doc-markdown a {
+  color: var(--ifm-color-info);
+}
+
+.theme-doc-markdown a:hover {
+  text-decoration: underline;
+}
+
+.theme-doc-markdown h1 {
+  font-size: 2.8rem;
+}
+
+.theme-doc-markdown h2 {
+  font-size: 2.2rem;
+}
+
+.theme-doc-markdown h3 {
+  font-size: 1.8rem;
+}
+
+.theme-doc-markdown h4 {
+  font-size: 1.5rem;
+}
+
+.theme-doc-markdown h5 {
+  font-size: 1.3rem;
+}
+
+.theme-doc-markdown h6 {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 996px) {
+  .theme-doc-markdown h1 {
+    font-size: 2.2rem;
+  }
+
+  .theme-doc-markdown h2 {
+    font-size: 1.8rem;
+  }
+
+  .theme-doc-markdown h3 {
+    font-size: 1.5rem;
+  }
+
+  .theme-doc-markdown h4 {
+    font-size: 1.3rem;
+  }
+
+  .theme-doc-markdown h5 {
+    font-size: 1.1rem;
+  }
+
+  .theme-doc-markdown h6 {
+    font-size: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fadeIn 0.8s ease-out forwards;
+}

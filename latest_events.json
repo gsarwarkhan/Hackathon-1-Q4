@@ -1,0 +1,235 @@
+﻿[
+    {
+        "created":  1764803148894,
+        "date":  1764803148894,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803148894673246549200000",
+        "text":  "Running build in Portland, USA (West) â pdx1",
+        "type":  "stdout",
+        "serial":  "1764803148894673246549200000",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 }
+    },
+    {
+        "created":  1764803148894,
+        "date":  1764803148894,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803148894673246549200001",
+        "text":  "Build machine configuration: 2 cores, 8 GB",
+        "type":  "stdout",
+        "serial":  "1764803148894673246549200001",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 }
+    },
+    {
+        "created":  1764803149002,
+        "date":  1764803149002,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803149002673246549200002",
+        "text":  "Cloning github.com/gsarwarkhan/Hackathon-1-Q4 (Branch: master, Commit: e3bf24e)",
+        "type":  "stdout",
+        "serial":  "1764803149002673246549200002",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 }
+    },
+    {
+        "created":  1764803149003,
+        "date":  1764803149003,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803149003673246549200001",
+        "text":  "Previous build caches not available.",
+        "type":  "stdout",
+        "serial":  "1764803149003673246549200001",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 }
+    },
+    {
+        "created":  1764803149498,
+        "date":  1764803149498,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803149498673246549200000",
+        "text":  "Cloning completed: 495.000ms",
+        "type":  "stdout",
+        "serial":  "1764803149498673246549200000",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 }
+    },
+    {
+        "created":  1764803150564,
+        "date":  1764803150564,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803150564715318850400000",
+        "text":  "Running \"vercel build\"",
+        "type":  "stdout",
+        "serial":  "1764803150564715318850400000",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 }
+    },
+    {
+        "created":  1764803150964,
+        "date":  1764803150964,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803150964715318850400000",
+        "text":  "Vercel CLI 48.12.0",
+        "type":  "stderr",
+        "serial":  "1764803150964715318850400000",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 }
+    },
+    {
+        "created":  1764803151975,
+        "date":  1764803151975,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803151975715318850400000",
+        "text":  "npm error code ENOENT",
+        "type":  "stderr",
+        "serial":  "1764803151975715318850400000",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 },
+        "level":  "error"
+    },
+    {
+        "created":  1764803151976,
+        "date":  1764803151976,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803151976715318850400000",
+        "text":  "npm error syscall open",
+        "type":  "stderr",
+        "serial":  "1764803151976715318850400000",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 },
+        "level":  "error"
+    },
+    {
+        "created":  1764803151976,
+        "date":  1764803151976,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803151976715318850400001",
+        "text":  "npm error path /vercel/path0/package.json",
+        "type":  "stderr",
+        "serial":  "1764803151976715318850400001",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 },
+        "level":  "error"
+    },
+    {
+        "created":  1764803151976,
+        "date":  1764803151976,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803151976715318850400002",
+        "text":  "npm error errno -2",
+        "type":  "stderr",
+        "serial":  "1764803151976715318850400002",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 },
+        "level":  "error"
+    },
+    {
+        "created":  1764803151977,
+        "date":  1764803151977,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803151977715318850400000",
+        "text":  "npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open \u0027/vercel/path0/package.json\u0027",
+        "type":  "stderr",
+        "serial":  "1764803151977715318850400000",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 },
+        "level":  "error"
+    },
+    {
+        "created":  1764803151977,
+        "date":  1764803151977,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803151977715318850400001",
+        "text":  "npm error enoent This is related to npm not being able to find a file.",
+        "type":  "stderr",
+        "serial":  "1764803151977715318850400001",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 },
+        "level":  "error"
+    },
+    {
+        "created":  1764803151977,
+        "date":  1764803151977,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803151977715318850400002",
+        "text":  "npm error enoent",
+        "type":  "stderr",
+        "serial":  "1764803151977715318850400002",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 },
+        "level":  "error"
+    },
+    {
+        "created":  1764803151978,
+        "date":  1764803151978,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803151978715318850400000",
+        "text":  "npm error A complete log of this run can be found in: /vercel/.npm/_logs/2025-12-03T23_05_51_880Z-debug-0.log",
+        "type":  "stderr",
+        "serial":  "1764803151978715318850400000",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 },
+        "level":  "error"
+    },
+    {
+        "created":  1764803151990,
+        "date":  1764803151990,
+        "deploymentId":  "dpl_GbuX8FQFj5npEzEBnbKeTERxsvma",
+        "id":  "1764803151990715318850400000",
+        "text":  "Error: Command \"npm run vercel-build\" exited with 254",
+        "type":  "stderr",
+        "serial":  "1764803151990715318850400000",
+        "info":  {
+                     "type":  "build",
+                     "name":  "bld_e34s9ksrm",
+                     "entrypoint":  "."
+                 },
+        "level":  "error"
+    }
+]

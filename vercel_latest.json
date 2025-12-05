@@ -1,0 +1,233 @@
+﻿{
+    "deployments":  [
+                        {
+                            "uid":  "dpl_E5LQDTbmUdq6ddoN8MLmNTUMwfwU",
+                            "name":  "hackathon-1-q4",
+                            "projectId":  "prj_xtP1nVz9uumlytgVkzoxeUYCcZt3",
+                            "url":  "hackathon-1-q4-7v04p4k2p-ghulam-sarwar-khans-projects.vercel.app",
+                            "created":  1764801721961,
+                            "source":  "git",
+                            "state":  "ERROR",
+                            "readyState":  "ERROR",
+                            "type":  "LAMBDAS",
+                            "creator":  {
+                                            "uid":  "xxI4AjeHeWofdJ0INprU1mAt",
+                                            "email":  "sarwaronline@gmail.com",
+                                            "username":  "gsarwarkhan",
+                                            "githubLogin":  "gsarwarkhan"
+                                        },
+                            "inspectorUrl":  "https://vercel.com/ghulam-sarwar-khans-projects/hackathon-1-q4/E5LQDTbmUdq6ddoN8MLmNTUMwfwU",
+                            "meta":  {
+                                         "githubCommitAuthorName":  "Ghulam Sarwar Khan",
+                                         "githubCommitAuthorEmail":  "sarwaronline@gmail.com",
+                                         "githubCommitMessage":  "chore: trigger redeploy after setting rootDirectory to my-website",
+                                         "githubCommitOrg":  "gsarwarkhan",
+                                         "githubCommitRef":  "master",
+                                         "githubCommitRepo":  "Hackathon-1-Q4",
+                                         "githubCommitSha":  "c8680f846c086a5bce323dc9b5fb997525816c06",
+                                         "githubDeployment":  "1",
+                                         "githubOrg":  "gsarwarkhan",
+                                         "githubRepo":  "Hackathon-1-Q4",
+                                         "githubRepoOwnerType":  "User",
+                                         "githubCommitRepoId":  "1108033348",
+                                         "githubRepoId":  "1108033348",
+                                         "githubRepoVisibility":  "public",
+                                         "githubHost":  "github.com",
+                                         "githubCommitAuthorLogin":  "gsarwarkhan",
+                                         "repoPushedAt":  "1764801719000",
+                                         "branchAlias":  "hackathon-1-q4-git-master-ghulam-sarwar-khans-projects.vercel.app"
+                                     },
+                            "target":  "production",
+                            "aliasAssigned":  null,
+                            "isRollbackCandidate":  false,
+                            "createdAt":  1764801721961,
+                            "ready":  1764801721961,
+                            "errorMessage":  "Could not parse File as JSON: my-website/vercel.json",
+                            "projectSettings":  {
+                                                    "commandForIgnoringBuildStep":  null
+                                                }
+                        },
+                        {
+                            "uid":  "dpl_oBPkEAiGvUUkEq5hUBF8dXketrxp",
+                            "name":  "hackathon-1-q4",
+                            "projectId":  "prj_xtP1nVz9uumlytgVkzoxeUYCcZt3",
+                            "url":  "hackathon-1-q4-dqb4xre2d-ghulam-sarwar-khans-projects.vercel.app",
+                            "created":  1764801348977,
+                            "state":  "ERROR",
+                            "readyState":  "ERROR",
+                            "type":  "LAMBDAS",
+                            "creator":  {
+                                            "uid":  "xxI4AjeHeWofdJ0INprU1mAt",
+                                            "email":  "sarwaronline@gmail.com",
+                                            "username":  "gsarwarkhan"
+                                        },
+                            "inspectorUrl":  "https://vercel.com/ghulam-sarwar-khans-projects/hackathon-1-q4/oBPkEAiGvUUkEq5hUBF8dXketrxp",
+                            "meta":  {
+
+                                     },
+                            "target":  "production",
+                            "aliasAssigned":  null,
+                            "isRollbackCandidate":  false,
+                            "createdAt":  1764801348977,
+                            "buildingAt":  1764801351171,
+                            "ready":  1764801360919,
+                            "errorCode":  "BUILD_UTILS_SPAWN_254",
+                            "errorMessage":  "Command \"npm run vercel-build\" exited with 254",
+                            "projectSettings":  {
+                                                    "commandForIgnoringBuildStep":  null
+                                                }
+                        },
+                        {
+                            "uid":  "dpl_BZgwGNjDBk7Vjv2bYrCxVdWBs9u8",
+                            "name":  "hackathon-1-q4",
+                            "projectId":  "prj_xtP1nVz9uumlytgVkzoxeUYCcZt3",
+                            "url":  "hackathon-1-q4-gwbdfs3ig-ghulam-sarwar-khans-projects.vercel.app",
+                            "created":  1764800064410,
+                            "source":  "git",
+                            "state":  "ERROR",
+                            "readyState":  "ERROR",
+                            "type":  "LAMBDAS",
+                            "creator":  {
+                                            "uid":  "xxI4AjeHeWofdJ0INprU1mAt",
+                                            "email":  "sarwaronline@gmail.com",
+                                            "username":  "gsarwarkhan",
+                                            "githubLogin":  "gsarwarkhan"
+                                        },
+                            "inspectorUrl":  "https://vercel.com/ghulam-sarwar-khans-projects/hackathon-1-q4/BZgwGNjDBk7Vjv2bYrCxVdWBs9u8",
+                            "meta":  {
+                                         "githubCommitAuthorName":  "Ghulam Sarwar Khan",
+                                         "githubCommitAuthorEmail":  "sarwaronline@gmail.com",
+                                         "githubCommitMessage":  "chore: trigger redeploy after project settings update",
+                                         "githubCommitOrg":  "gsarwarkhan",
+                                         "githubCommitRef":  "master",
+                                         "githubCommitRepo":  "Hackathon-1-Q4",
+                                         "githubCommitSha":  "57a8502a3cd92dc3e2dba8d811c03aef0151659f",
+                                         "githubDeployment":  "1",
+                                         "githubOrg":  "gsarwarkhan",
+                                         "githubRepo":  "Hackathon-1-Q4",
+                                         "githubRepoOwnerType":  "User",
+                                         "githubCommitRepoId":  "1108033348",
+                                         "githubRepoId":  "1108033348",
+                                         "githubRepoVisibility":  "public",
+                                         "githubHost":  "github.com",
+                                         "githubCommitAuthorLogin":  "gsarwarkhan",
+                                         "repoPushedAt":  "1764800062000",
+                                         "branchAlias":  "hackathon-1-q4-git-master-ghulam-sarwar-khans-projects.vercel.app"
+                                     },
+                            "target":  "production",
+                            "aliasAssigned":  null,
+                            "isRollbackCandidate":  false,
+                            "createdAt":  1764800064410,
+                            "buildingAt":  1764800069976,
+                            "ready":  1764800072855,
+                            "errorCode":  "BUILD_UTILS_SPAWN_254",
+                            "errorMessage":  "Command \"npm run vercel-build\" exited with 254",
+                            "projectSettings":  {
+                                                    "commandForIgnoringBuildStep":  null
+                                                }
+                        },
+                        {
+                            "uid":  "dpl_5RMEKysmzK44hbpq3b3tg6TDGh4V",
+                            "name":  "hackathon-1-q4",
+                            "projectId":  "prj_xtP1nVz9uumlytgVkzoxeUYCcZt3",
+                            "url":  "hackathon-1-q4-9myxugvfq-ghulam-sarwar-khans-projects.vercel.app",
+                            "created":  1764799965288,
+                            "source":  "git",
+                            "state":  "READY",
+                            "readyState":  "READY",
+                            "readySubstate":  "PROMOTED",
+                            "type":  "LAMBDAS",
+                            "creator":  {
+                                            "uid":  "xxI4AjeHeWofdJ0INprU1mAt",
+                                            "email":  "sarwaronline@gmail.com",
+                                            "username":  "gsarwarkhan",
+                                            "githubLogin":  "gsarwarkhan"
+                                        },
+                            "inspectorUrl":  "https://vercel.com/ghulam-sarwar-khans-projects/hackathon-1-q4/5RMEKysmzK44hbpq3b3tg6TDGh4V",
+                            "meta":  {
+                                         "githubCommitAuthorName":  "Ghulam Sarwar Khan",
+                                         "githubCommitAuthorEmail":  "sarwaronline@gmail.com",
+                                         "githubCommitMessage":  "fix(vercel): valid root vercel.json (no code fences)",
+                                         "githubCommitOrg":  "gsarwarkhan",
+                                         "githubCommitRef":  "master",
+                                         "githubCommitRepo":  "Hackathon-1-Q4",
+                                         "githubCommitSha":  "6c3d4619a23be016aa3a6c611ddb9c4077c39306",
+                                         "githubDeployment":  "1",
+                                         "githubOrg":  "gsarwarkhan",
+                                         "githubRepo":  "Hackathon-1-Q4",
+                                         "githubRepoOwnerType":  "User",
+                                         "githubCommitRepoId":  "1108033348",
+                                         "githubRepoId":  "1108033348",
+                                         "githubRepoVisibility":  "public",
+                                         "githubHost":  "github.com",
+                                         "githubCommitAuthorLogin":  "gsarwarkhan",
+                                         "repoPushedAt":  "1764799963000",
+                                         "branchAlias":  "hackathon-1-q4-git-master-ghulam-sarwar-khans-projects.vercel.app"
+                                     },
+                            "target":  "production",
+                            "aliasError":  null,
+                            "aliasAssigned":  1764799975912,
+                            "isRollbackCandidate":  true,
+                            "createdAt":  1764799965288,
+                            "buildingAt":  1764799971281,
+                            "ready":  1764799975751,
+                            "projectSettings":  {
+                                                    "commandForIgnoringBuildStep":  null
+                                                }
+                        },
+                        {
+                            "uid":  "dpl_7Y35gLpzWYZ1D6pPN1q4Necnk4YD",
+                            "name":  "hackathon-1-q4",
+                            "projectId":  "prj_xtP1nVz9uumlytgVkzoxeUYCcZt3",
+                            "url":  "hackathon-1-q4-x7zx1365c-ghulam-sarwar-khans-projects.vercel.app",
+                            "created":  1764799666642,
+                            "source":  "git",
+                            "state":  "READY",
+                            "readyState":  "READY",
+                            "readySubstate":  "PROMOTED",
+                            "type":  "LAMBDAS",
+                            "creator":  {
+                                            "uid":  "xxI4AjeHeWofdJ0INprU1mAt",
+                                            "email":  "sarwaronline@gmail.com",
+                                            "username":  "gsarwarkhan",
+                                            "githubLogin":  "gsarwarkhan"
+                                        },
+                            "inspectorUrl":  "https://vercel.com/ghulam-sarwar-khans-projects/hackathon-1-q4/7Y35gLpzWYZ1D6pPN1q4Necnk4YD",
+                            "meta":  {
+                                         "githubCommitAuthorName":  "Ghulam Sarwar Khan",
+                                         "githubCommitAuthorEmail":  "sarwaronline@gmail.com",
+                                         "githubCommitMessage":  "chore: trigger redeploy after vercel-build",
+                                         "githubCommitOrg":  "gsarwarkhan",
+                                         "githubCommitRef":  "master",
+                                         "githubCommitRepo":  "Hackathon-1-Q4",
+                                         "githubCommitSha":  "980805c02939210e474a312992cfd2000dbdd4b0",
+                                         "githubDeployment":  "1",
+                                         "githubOrg":  "gsarwarkhan",
+                                         "githubRepo":  "Hackathon-1-Q4",
+                                         "githubRepoOwnerType":  "User",
+                                         "githubCommitRepoId":  "1108033348",
+                                         "githubRepoId":  "1108033348",
+                                         "githubRepoVisibility":  "public",
+                                         "githubHost":  "github.com",
+                                         "githubCommitAuthorLogin":  "gsarwarkhan",
+                                         "repoPushedAt":  "1764799664000",
+                                         "branchAlias":  "hackathon-1-q4-git-master-ghulam-sarwar-khans-projects.vercel.app"
+                                     },
+                            "target":  "production",
+                            "aliasError":  null,
+                            "aliasAssigned":  1764799679732,
+                            "isRollbackCandidate":  true,
+                            "createdAt":  1764799666642,
+                            "buildingAt":  1764799675076,
+                            "ready":  1764799679502,
+                            "projectSettings":  {
+                                                    "commandForIgnoringBuildStep":  null
+                                                }
+                        }
+                    ],
+    "pagination":  {
+                       "count":  5,
+                       "next":  1764799666642,
+                       "prev":  1764801721961
+                   }
+}
