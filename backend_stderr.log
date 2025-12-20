@@ -1,0 +1,23 @@
+D:\physical-ai-humanoid-textbook\src\main.py:45: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+2025-12-20 17:47:26,507 - INFO - Starting FastAPI server with Uvicorn...
+INFO:     Started server process [3476]
+INFO:     Waiting for application startup.
+2025-12-20 17:47:28,165 - INFO - HTTP Request: GET https://44f1eced-a617-4726-8d5d-90f66a56e2e2.us-east4-0.gcp.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2025-12-20 17:47:28,180 - INFO - Qdrant client initialized successfully.
+2025-12-20 17:47:28,506 - INFO - Cohere client initialized successfully.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-12-20 17:48:00,087 - INFO - HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2025-12-20 17:48:00,102 - INFO - Cohere embedding generated successfully.
+2025-12-20 17:48:00,102 - ERROR - Qdrant retrieval or context assembly failed: 'QdrantClient' object has no attribute 'search'
+Traceback (most recent call last):
+  File "D:\physical-ai-humanoid-textbook\src\main.py", line 125, in ask_chatbot
+    search_results = qdrant_client_instance.search(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'QdrantClient' object has no attribute 'search'

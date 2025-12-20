@@ -1,10 +1,14 @@
+import os
+import logging
+from typing import List, Union, Dict, Any
+
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from qdrant_client import QdrantClient
-import google.generativeai as genai
-import os
-import logging
+from qdrant_client.http.models import Filter # Kept for potential future use or if needed by QdrantClient internally
+import cohere
+import numpy as np # Used for potential np.ndarray to list conversion
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -14,57 +18,47 @@ logger = logging.getLogger(__name__)
 # Ensure these environment variables are set
 QDRANT_URL = os.getenv("QDRANT_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+COHERE_API_KEY = os.getenv("COHERE_API_KEY")
+
+MAX_CONTEXT_LENGTH = 10000 # Maximum characters for context passed to LLM
 
 # --- FastAPI App Initialization ---
 app = FastAPI(
     title="RAG Chatbot API",
-    description="A RAG-based chatbot using Google Gemini and Qdrant.",
+    description="A RAG-based chatbot using Cohere and Qdrant.",
     version="1.0.0",
 )
 
 # --- CORS Middleware ---
-# Set allow_origins=['*'] to eliminate 'Failed to fetch' errors during development.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["POST", "GET"],
-    allow_headers=["*"],
+    allow_origins=["http://localhost:3001"], # Explicitly allow frontend origin
+    allow_credentials=True, # Allow cookies/auth headers from this origin
+    allow_methods=["GET", "POST", "OPTIONS"], # Explicitly allow methods needed, OPTIONS for preflight
+    allow_headers=["Content-Type"], # Explicitly allow Content-Type header
 )
 
 # --- Service Clients Initialization ---
 qdrant_client_instance: QdrantClient = None
-generation_model_instance: genai.GenerativeModel = None
-embedding_model_instance: genai.GenerativeModel = None
+cohere_client_instance: cohere.Client = None
 
 @app.on_event("startup")
 async def startup_event():
-    global qdrant_client_instance, generation_model_instance, embedding_model_instance
+    global qdrant_client_instance, cohere_client_instance
+
     try:
-        # Initialize Qdrant client
         if not QDRANT_URL or not QDRANT_API_KEY:
             raise ValueError("QDRANT_URL and QDRANT_API_KEY environment variables must be set.")
         qdrant_client_instance = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
         logger.info("Qdrant client initialized successfully.")
 
-        # Configure Google Generative AI
-        if not GOOGLE_API_KEY:
-            raise ValueError("GOOGLE_API_KEY environment variable must be set.")
-        genai.configure(api_key=GOOGLE_API_KEY)
-        logger.info("Google Generative AI configured.")
+        if not COHERE_API_KEY:
+            raise ValueError("COHERE_API_KEY environment variable must be set.")
+        cohere_client_instance = cohere.Client(api_key=COHERE_API_KEY)
+        logger.info("Cohere client initialized successfully.")
         
-        # Initialize the Gemini model for answer generation
-        generation_model_instance = genai.GenerativeModel('gemini-1.5-flash')
-        logger.info("Gemini 1.5 Flash model initialized.")
-        
-        # Initialize the model for embedding
-        embedding_model_instance = genai.GenerativeModel('text-embedding-004')
-        logger.info("Text Embedding 004 model initialized.")
-
     except Exception as e:
         logger.error(f"Failed to initialize service clients on startup: {e}", exc_info=True)
-        # Re-raise the exception to prevent the application from starting
         raise
 
 # --- Pydantic Models ---
@@ -81,73 +75,98 @@ async def health_check():
     """
     Health check endpoint to test if the server is alive.
     """
+    logger.info("Health check endpoint hit.")
     return {"status": "alive", "message": "RAG Chatbot API is running!"}
 
-# --- API Endpoints ---
+# --- FINAL ROBUST RAG PIPELINE HANDLER ---
 @app.post("/ask", response_model=AskResponse)
-async def ask_rag_chatbot(request: AskRequest):
+async def ask_chatbot(request: AskRequest):
     """
     Handles a user's question by performing Retrieval-Augmented Generation.
-    1.  Generates an embedding for the user's question.
-    2.  Searches Qdrant for the most relevant context.
-    3.  Uses the retrieved context and the original question to generate an answer.
+    1.  Generates an embedding for the user's question using Cohere.
+    2.  Searches Qdrant for the most relevant context using the embedding.
+    3.  Assembles and truncates context from Qdrant results.
+    4.  Generates an answer using Cohere command-r.
     """
     if not request.question:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Question cannot be empty.")
 
     try:
-        # 1. Generate embedding for the user's question
-        # Ensure embedding_model_instance is initialized
-        if embedding_model_instance is None:
-            raise RuntimeError("Embedding model not initialized.")
+        # 1. Generate query embedding using Cohere
+        if cohere_client_instance is None:
+            raise RuntimeError("Cohere client not initialized.")
             
-        question_embedding = genai.embed_content(
-            model=f'models/{embedding_model_instance.model_name}',
-            content=request.question,
-            task_type="retrieval_query"
-        )['embedding']
-        logger.info("Question embedding generated.")
-
+        embed_response = cohere_client_instance.embed(
+            texts=[request.question],
+            model='embed-english-v3.0',
+            input_type='search_query' # Crucial for query-time embeddings as per spec
+        )
+        question_embedding = embed_response.embeddings[0] # This should be List[float]
+        logger.info("Cohere embedding generated successfully.") # Debug log
+        
     except Exception as e:
-        logger.error(f"Gemini API (embedding) failed: {e}", exc_info=True)
+        logger.error(f"Cohere API (embedding) failed: {e}", exc_info=True)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Failed to generate embedding: {e}"
+            detail=f"Failed to generate embedding with Cohere: {e}"
         )
 
     try:
-        # 2. Search Qdrant for relevant documents
-        # Ensure qdrant_client_instance is initialized
+        # 2. Perform Qdrant vector search
         if qdrant_client_instance is None:
             raise RuntimeError("Qdrant client not initialized.")
             
-        search_results = qdrant_client_instance.search(
+        # Ensure question_embedding is a list of floats, as required by qdrant_client.search
+        if isinstance(question_embedding, np.ndarray):
+            question_embedding_list = question_embedding.tolist()
+        else:
+            question_embedding_list = question_embedding
+        
+        search_results = qdrant_client_instance.query_points(
             collection_name="humanoid_textbook",
-            query_vector=question_embedding,
+            query=question_embedding_list, # Pass the Cohere embedding directly to 'query'
             limit=3,
         )
-        logger.info(f"Qdrant search returned {len(search_results)} results.")
+        logger.info(f"Qdrant search returned {len(search_results)} results.") # Debug log
         
-        # 3. Assemble the context from search results
-        context = "\n\n".join([
-            f"--- Context Snippet from: {res.payload.get('source', 'Unknown')} ---\n"
-            f"{res.payload.get('text', '')}"
-            for res in search_results
-        ])
-        logger.debug(f"Assembled context: {context}")
+        # Defensive handling: Empty Qdrant results
+        if not search_results:
+            logger.warning("Qdrant search returned no relevant documents for the query.")
+            return {"answer": "I couldn't find any relevant information in the textbook to answer your question. Please try rephrasing or ask a different question."}
 
+        # 3. Safely assemble context from payload
+        assembled_context_parts = []
+        for res in search_results:
+            # Defensive handling: Missing payload text field
+            text_content = res.payload.get('text', '')
+            if text_content: # Only add if text content is not empty
+                assembled_context_parts.append(f"--- Context Snippet from: {res.payload.get('source', 'Unknown')} ---\n{text_content}")
+            else:
+                logger.warning(f"Qdrant result {res.id} missing 'text' in payload or text is empty.")
+        
+        context = "\n\n".join(assembled_context_parts)
+        
+        # Defensive handling: Truncate context to a safe size
+        if len(context) > MAX_CONTEXT_LENGTH:
+            logger.warning(f"Context truncated from {len(context)} to {MAX_CONTEXT_LENGTH} characters before sending to LLM.")
+            context = context[:MAX_CONTEXT_LENGTH]
+        elif not context: # If after assembly and potential truncation, context is still empty
+            logger.warning("Assembled context is empty after Qdrant search.")
+            return {"answer": "I found some documents, but couldn't extract useful context to answer your question. Please try rephrasing."}
+
+        logger.debug(f"Assembled context: {context[:500]}...") # Log first 500 chars of context
+        
     except Exception as e:
-        logger.error(f"Qdrant failed: {e}", exc_info=True)
+        logger.error(f"Qdrant retrieval or context assembly failed: {e}", exc_info=True)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to retrieve context from Qdrant: {e}"
         )
 
     try:
-        # 4. Generate an answer using the Gemini model
-        # Ensure generation_model_instance is initialized
-        if generation_model_instance is None:
-            raise RuntimeError("Generation model not initialized.")
+        # 4. Generate an answer using Cohere command-r
+        if cohere_client_instance is None:
+            raise RuntimeError("Cohere client not initialized.")
 
         prompt = f"""
         You are an expert AI tutor for a course on Physical AI and Humanoid Robotics.
@@ -166,13 +185,22 @@ professional, and helpful answer. Ensure your answer is directly relevant to the
 **Answer:**
 """
         
-        response = generation_model_instance.generate_content(prompt)
-        logger.info("Answer generated by Gemini.")
+        chat_response = cohere_client_instance.chat(
+            model='command-r', # Optimized for RAG and instruction following
+            message=prompt
+        )
         
-        return {"answer": response.text}
+        # Defensive handling: Empty or truncated Cohere generation
+        if not chat_response.text:
+            logger.warning("Cohere generation returned an empty response.")
+            return {"answer": "I received an empty response from the AI. Please try again or ask a different question."}
+
+        logger.info("Cohere answer generated successfully.") # Debug log
+        
+        return {"answer": chat_response.text}
 
     except Exception as e:
-        logger.error(f"Gemini API (generation) failed: {e}", exc_info=True)
+        logger.error(f"Cohere API (generation) failed: {e}", exc_info=True)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to generate answer: {e}"
