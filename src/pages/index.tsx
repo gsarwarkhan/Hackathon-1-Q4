@@ -8,22 +8,22 @@ const features = [
   {
     title: 'ROS 2',
     description: 'Learn Robot Operating System 2 for controlling physical robots and simulations.',
-    link: '/docs/01-Module-1-ROS2/',
+    link: '/docs/ros2',
   },
   {
     title: 'Digital Twin',
     description: 'Understand how to create digital replicas of real-world systems for testing and analysis.',
-    link: '/docs/02-Module-2-Digital-Twin/',
+    link: '/docs/digital-twin',
   },
   {
     title: 'AI-Robot Brain',
     description: 'Explore AI integration for humanoid robotics and autonomous decision-making.',
-    link: '/docs/03-Module-3-Isaac-Sim/',
+    link: '/docs/ai-robot-brain',
   },
   {
     title: 'VLA',
     description: 'Learn Virtual Learning Agents for advanced human-robot interaction scenarios.',
-    link: '/docs/04-Module-4-VLA/',
+    link: '/docs/vla',
   },
 ];
 

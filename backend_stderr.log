@@ -1,23 +1,18 @@
-D:\physical-ai-humanoid-textbook\src\main.py:45: DeprecationWarning: 
-        on_event is deprecated, use lifespan event handlers instead.
-
-        Read more about it in the
-        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
-        
-  @app.on_event("startup")
-2025-12-20 17:47:26,507 - INFO - Starting FastAPI server with Uvicorn...
-INFO:     Started server process [3476]
+2025-12-26 17:59:58,067 - INFO - All required environment variables are loaded.
+INFO:     Started server process [4640]
 INFO:     Waiting for application startup.
-2025-12-20 17:47:28,165 - INFO - HTTP Request: GET https://44f1eced-a617-4726-8d5d-90f66a56e2e2.us-east4-0.gcp.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
-2025-12-20 17:47:28,180 - INFO - Qdrant client initialized successfully.
-2025-12-20 17:47:28,506 - INFO - Cohere client initialized successfully.
+2025-12-26 17:59:58,071 - INFO - Initializing clients...
+2025-12-26 18:00:00,087 - INFO - HTTP Request: GET https://44f1eced-a617-4726-8d5d-90f66a56e2e2.us-east4-0.gcp.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2025-12-26 18:00:00,662 - INFO - Qdrant and OpenAI clients initialized successfully.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-2025-12-20 17:48:00,087 - INFO - HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
-2025-12-20 17:48:00,102 - INFO - Cohere embedding generated successfully.
-2025-12-20 17:48:00,102 - ERROR - Qdrant retrieval or context assembly failed: 'QdrantClient' object has no attribute 'search'
-Traceback (most recent call last):
-  File "D:\physical-ai-humanoid-textbook\src\main.py", line 125, in ask_chatbot
-    search_results = qdrant_client_instance.search(
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'QdrantClient' object has no attribute 'search'
+2025-12-26 18:00:15,821 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2025-12-26 18:00:15,826 - ERROR - Embedding failed for query: 'hi'. Error: Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+2025-12-26 18:00:39,334 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2025-12-26 18:00:39,335 - ERROR - Embedding failed for query: 'hi'. Error: Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+2025-12-26 18:01:12,606 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2025-12-26 18:01:12,607 - ERROR - Embedding failed for query: 'hi'. Error: Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+2025-12-26 18:32:46,904 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2025-12-26 18:32:46,905 - ERROR - Embedding failed for query: 'hi'. Error: Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}
+2025-12-26 18:34:52,133 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2025-12-26 18:34:52,134 - ERROR - Embedding failed for query: 'hi'. Error: Error code: 401 - {'error': {'message': 'No cookie auth credentials found', 'code': 401}}

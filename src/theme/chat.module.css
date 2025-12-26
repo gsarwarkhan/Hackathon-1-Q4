@@ -1,58 +1,119 @@
-/* src/theme/chat.module.css */
-
 .chatContainer {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 350px;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  font-family: sans-serif;
+  width: 350px; /* Fixed width for the chat widget */
+  height: 500px; /* Fixed height for the chat widget */
+  background-color: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-border-radius);
+  box-shadow: var(--ifm-shadow-lg);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000; /* Ensure it's above other content */
+  overflow: hidden; /* Hide overflow from rounded corners */
 }
 
 .chatBox {
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 10px;
 }
 
-.chatBox p {
-  margin: 0 0 15px 0;
+.messageContainer {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable vertical scrolling */
   padding: 10px;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  min-height: 50px;
-  max-height: 300px; /* Added for scroll */
-  overflow-y: auto;   /* Added for scroll */
-  white-space: pre-wrap; /* Added for formatting */
-  word-wrap: break-word; /* Added for long words */
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
   display: flex;
-  align-items: center;
-  color: #333;
+  flex-direction: column; /* Stack messages vertically */
+}
+
+/* Scrollbar styles for Webkit browsers */
+.messageContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messageContainer::-webkit-scrollbar-track {
+  background: var(--ifm-background-color);
+}
+
+.messageContainer::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-emphasis-400);
+  border-radius: 4px;
+}
+
+.messageContainer::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-emphasis-500);
+}
+
+
+.message {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 80%; /* Limit message width */
+  word-wrap: break-word; /* Ensure long words break */
+  white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+}
+
+.user {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  align-self: flex-end; /* Align user messages to the right */
+  border-bottom-right-radius: 2px; /* Slightly different border for aesthetic */
+}
+
+.ai {
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+  align-self: flex-start; /* Align AI messages to the left */
+  border-bottom-left-radius: 2px; /* Slightly different border for aesthetic */
+}
+
+.system {
+  background-color: var(--ifm-color-info);
+  color: white;
+  align-self: center; /* Center system messages */
+  text-align: center;
+  font-size: 0.9em;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
 .chatBox input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-border-radius);
+  padding: 8px 12px;
+  margin-right: 10px;
+  flex-grow: 1;
+  font-size: 1em;
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+}
+
+.chatBox input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--ifm-color-primary-rgb), 0.2);
 }
 
 .chatBox button {
-  padding: 10px 15px;
-  background-color: #007bff;
+  background-color: var(--ifm-color-primary);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--ifm-border-radius);
+  padding: 8px 15px;
   cursor: pointer;
-  align-self: flex-end;
+  font-size: 1em;
+  transition: background-color 0.2s;
 }
 
-.chatBox button:hover {
-  background-color: #0056b3;
+.chatBox button:hover:not(:disabled) {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+.chatBox button:disabled {
+  background-color: var(--ifm-color-emphasis-400);
+  cursor: not-allowed;
 }

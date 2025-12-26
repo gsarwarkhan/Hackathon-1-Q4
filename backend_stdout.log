@@ -1,1 +1,7 @@
-INFO:     127.0.0.1:55497 - "POST /ask HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:51060 - "POST /chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:51098 - "OPTIONS /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51098 - "POST /chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:51101 - "POST /chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:51243 - "OPTIONS /chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51243 - "POST /chat HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:51261 - "POST /chat HTTP/1.1" 500 Internal Server Error

@@ -7,8 +7,14 @@ const config = {
   tagline: 'Bridging the gap between the digital brain and the physical body',
   url: 'https://your-vercel-link.vercel.app',
   baseUrl: '/',
-  onBrokenLinks: 'ignore',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
+
   favicon: 'img/favicon.ico',
 
   organizationName: 'panaversity',
@@ -41,7 +47,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./sidebars.ts'),
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
