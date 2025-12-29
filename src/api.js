@@ -1,7 +1,13 @@
 // src/api.js
 import axios from 'axios';
 
-const API_BASE_URL = "http://localhost:8001";
+// Backend API URL - configure via environment variable
+// For local development: http://localhost:8000
+// For production: Set REACT_APP_BACKEND_URL in Vercel environment variables
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL ||
+  (process.env.NODE_ENV === 'production'
+    ? 'https://your-backend-deployment.railway.app'  // Update this with your actual backend URL
+    : 'http://localhost:8000');
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -10,38 +16,29 @@ const api = axios.create({
   },
 });
 
-export const chatWithAI = async (message, sessionId = null) => {
+/**
+ * Send a message to the AI assistant
+ * @param {string} message - User input message
+ * @param {string|null} session_id - Optional session ID for chat persistence
+ * @returns {Promise<{response: string, session_id: string}>}
+ */
+export const chatWithAI = async (message, session_id = null) => {
   try {
     const response = await api.post('/chat', {
-      session_id: sessionId,
-      message: message,
+      message,
+      session_id,
     });
 
-    const data = response.data; // Axios automatically parses JSON
+    // Support both standard Response and APIResponse formats
+    if (response.data.status === 'success') {
+      return response.data.data;
+    }
 
-    if (data.status === "success") {
-      return { 
-        response: data.data.response, 
-        session_id: data.data.session_id 
-      };
-    } else {
-      // This case should ideally not be hit if backend always returns success on 2xx
-      // but handles unexpected data format
-      throw new Error(data.message || "API returned an unexpected success status with no data.");
-    }
+    return response.data;
   } catch (error) {
-    let errorMsg = "Network Error. Please try again.";
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      errorMsg = error.response.data.message || `Server Error: ${error.response.status}`;
-    } else if (error.request) {
-      // The request was made but no response was received
-      errorMsg = "No response from server. Backend might be down.";
-    } else {
-      // Something else happened while setting up the request
-      errorMsg = error.message;
-    }
-    throw new Error(errorMsg);
+    console.error('API Error:', error);
+    throw new Error(error.response?.data?.message || 'Failed to connect to AI server');
   }
 };
+
+export default api;

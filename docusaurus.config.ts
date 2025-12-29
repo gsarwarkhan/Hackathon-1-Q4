@@ -1,5 +1,5 @@
 // @ts-check
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -64,12 +64,23 @@ const config = {
     ({
       navbar: {
         title: 'Physical AI & Robotics',
+        logo: {
+          alt: 'The Digital Ark Logo',
+          src: 'img/logo-ark.png',
+        },
         items: [
-          {type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs'},
-          {href: 'https://github.com/', label: 'GitHub', position: 'right'},
+          { type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs' },
+          { to: '/biography', label: 'Biography', position: 'left' },
+          { to: '/chat', label: 'Ask the AI', position: 'left' },
+          { href: 'https://github.com/gsarwarkhan/Hackathon-1-Q4', label: 'GitHub', position: 'right' },
           {
             type: 'localeDropdown',
             position: 'right',
+          },
+          {
+            type: 'html',
+            position: 'right',
+            value: '<img src="/img/profile.png" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #764ba2; display: block; margin-top: 4px;" alt="Ghulam Sarwar Khan" />',
           },
         ],
       },
