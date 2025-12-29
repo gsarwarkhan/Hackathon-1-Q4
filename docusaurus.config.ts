@@ -5,7 +5,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 const config = {
   title: 'Physical AI & Humanoid Robotics',
   tagline: 'Bridging the gap between the digital brain and the physical body',
-  url: 'https://your-vercel-link.vercel.app',
+  url: 'https://hackathon-1-q4.vercel.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
 
