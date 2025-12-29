@@ -67,11 +67,23 @@ const config = {
         logo: {
           alt: 'The Digital Ark Logo',
           src: 'img/logo-ark.png',
+          width: 40,
+          height: 40,
         },
         items: [
           { type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs' },
           { to: '/biography', label: 'Biography', position: 'left' },
           { to: '/chat', label: 'Ask the AI', position: 'left' },
+          {
+            href: 'https://www.linkedin.com/in/ghulam-sarwar-khan-b989b48a',
+            label: 'LinkedIn',
+            position: 'right',
+          },
+          {
+            href: 'https://www.facebook.com/sarwaronline/',
+            label: 'Facebook',
+            position: 'right',
+          },
           { href: 'https://github.com/gsarwarkhan/Hackathon-1-Q4', label: 'GitHub', position: 'right' },
           {
             type: 'localeDropdown',
@@ -80,13 +92,46 @@ const config = {
           {
             type: 'html',
             position: 'right',
-            value: '<img src="/img/profile.png" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #764ba2; display: block; margin-top: 4px;" alt="Ghulam Sarwar Khan" />',
+            value: '<img src="/img/profile.png" style="width: 44px; height: 44px; border-radius: 50%; border: 3px solid #764ba2; display: block; margin-top: 0px; box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);" alt="Ghulam Sarwar Khan" />',
           },
         ],
       },
       footer: {
         style: 'dark',
-        copyright: `© ${new Date().getFullYear()} Panaversity Physical AI`,
+        links: [
+          {
+            title: 'Docs',
+            items: [
+              {
+                label: 'Read Textbook',
+                to: '/docs',
+              },
+            ],
+          },
+          {
+            title: 'Community & Social',
+            items: [
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/ghulam-sarwar-khan-b989b48a',
+              },
+              {
+                label: 'Facebook',
+                href: 'https://www.facebook.com/sarwaronline/',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/gsarwarkhan/Hackathon-1-Q4',
+              },
+            ],
+          },
+        ],
+        copyright: `© ${new Date().getFullYear()} Panaversity Physical AI. Built by Ghulam Sarwar Khan.`,
       },
       prism: {
         theme: prismThemes.github,
